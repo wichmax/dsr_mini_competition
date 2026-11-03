@@ -5,6 +5,7 @@ from pathlib import Path
 DATA_PATH_RAW = Path("./../data") / "raw"
 RESULT_PATH = Path("./../data") / "results"
 PROCCESED_PATH = Path("./../data") / "processed"
+EXTRACTED_PATH = Path("./../data") / "raw" / "extracted"
 
 def load_data(path: Path):
     ext = Path(path).suffix.lower()
