@@ -15,19 +15,6 @@ def load_data(path: Path):
     else:
         raise ValueError(f"Unsupported file type: {ext}")
     
-def clean_features(d : pd.DataFrame) -> pd.DataFrame:
-    d = d.copy()
-    d["onpromotion"] = d["onpromotion"].fillna(False)
-    return d
-
-def add_date_features(d : pd.DataFrame) -> pd.DataFrame:
-    d = d.copy()
-    # adds weekday and month feature
-    d["date"] = pd.to_datetime(d["date"])
-    d["weekday_num"] = d["date"].dt.day_of_week
-    d["month_num"] = d["date"].dt.month
-    return d.drop(columns="date")
-
 def add_zero_sales(data: pd.DataFrame) -> pd.DataFrame:
     data["unit_sales"] = data["unit_sales"].clip(lower=0)
 
